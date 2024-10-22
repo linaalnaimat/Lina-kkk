@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحلة الأمان</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .question {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>رحلة الأمان</h1>
+    <div class="question" id="question-container">
+        <p id="question">هل أنت مستعد لتحدي جديد؟</p>
+        <button id="next-button">ابدأ!</button>
+    </div>
+
+    <script>
+        const questions = [
+            "ما هي مشاعرك عندما تواجه موقف صعب؟",
+            "كيف يمكنك طلب المساعدة من الآخرين؟",
+            "ما هي الحدود الشخصية التي يجب أن تحترمها؟",
+            "كيف تعبر عن رأيك بطريقة حازمة؟"
+        ];
+        
+        let currentQuestionIndex = 0;
+
+        const questionContainer = document.getElementById("question-container");
+        const questionText = document.getElementById("question");
+        const nextButton = document.getElementById("next-button");
+
+        nextButton.addEventListener("click", () => {
+            if (currentQuestionIndex < questions.length) {
+                questionText.innerText = questions[currentQuestionIndex];
+                currentQuestionIndex++;
+                nextButton.innerText = currentQuestionIndex < questions.length ? "السؤال التالي" : "انتهت اللعبة";
+            } else {
+                questionText.innerText = "شكرًا لمشاركتك!";
+                nextButton.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
